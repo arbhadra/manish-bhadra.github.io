@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manish Bhadra Arnab - Mechanical Engineer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Warm color palette from the reference */
+            --bg-primary: #EAE7DC;      /* Eggshell white background */
+            --bg-secondary: #D8C3A5;    /* Warm beige */
+            --accent-gray: #8E8D8A;     /* Taupe gray */
+            --accent-coral: #E98074;    /* Jelly bean red/coral */
+            --accent-red: #E85A4F;      /* Stronger red accent */
+            --text-dark: #3A3A3A;       /* Dark text */
+            --text-light: #FAF9F6;      /* Light text */
+            --card-bg: rgba(216, 195, 165, 0.3);  /* Warm card background */
+            --shadow: rgba(142, 141, 138, 0.2);   /* Soft shadow */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(234, 231, 220, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-coral);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-coral);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cv-button {
+            background: var(--accent-coral);
+            color: var(--text-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .cv-button:hover {
+            background: var(--accent-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233, 128, 116, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 5%;
+            margin-top: 60px;
+            position: relative;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            letter-spacing: -1px;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            color: var(--accent-coral);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--accent-gray);
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.6s;
+            animation-fill-mode: both;
+        }
+
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-coral);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeIn 1.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .profile-photo {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);
+            border: 6px outset teal;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+            box-shadow: 0 20px 60px rgba(233, 128, 116, 0.3);
+            position: relative;
+            overflow: hidden;
+            /* 
+            TODO: Replace this div content with your actual photo
+            Add your image using: <img src="path/to/your-photo.jpg" alt="Your Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            Recommended image format: JPG or PNG, 800x800px minimum for best quality
+            */
+        }
+
+        .profile-photo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        .certifications {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 500px; /* Match profile photo width for alignment */
+        }
+
+        .cert-badge {
+            width: 70px;
+            height: 70px;
+            background: rgba(216, 195, 165, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--bg-secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            position: relative;
+            /* 
+            TODO: Replace href="#" with actual certification links
+            Example: href="https://www.solidworks.com/certifications/your-cert-id"
+            */
+        }
+
+        .cert-badge:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--accent-coral);
+            border-color: var(--accent-red);
+            color: white;
+        }
+
+        .cert-badge .tooltip {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-dark);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .cert-badge:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent-coral);
+        }
+
+        /* Project Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--bg-secondary);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(233, 128, 116, 0.2);
+            border-color: var(--accent-coral);
+        }
+
+        .project-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            /* 
+            TODO: Add project images
+            Update the inline style background-image with actual image URLs
+            Example: style="background-image: url('images/project-name.jpg');"
+            Recommended: 700x400px JPG images
+            */
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-image {
+            transition: transform 0.4s;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(58, 58, 58, 0.3) 100%);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-red);
+        }
+
+        .project-content p {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: var(--bg-secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        /* Product Design Section */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 130px;
+            background-image: var(--bg-img);
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover::before {
+            opacity: 0.9;
+            height: 220px;
+            transform: scale(1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(233, 128, 116, 0.2);
+            border-color: var(--accent-coral);
+        }
+
+        .product-card h3 {
+            position: relative;
+            z-index: 1;
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card p {
+            position: relative;
+            z-index: 1;
+            color: var(--text-dark);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background: var(--bg-secondary);
+            color: var(--text-dark);
+            border-top: 1px solid var(--accent-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-photo {
+                width: 300px;
+                height: 300px;
+            }
+
+            .certifications {
+                width: 300px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+
+        /* Subsection Styles */
+        .subsection {
+            margin-top: 2rem;
+        }
+
+        .subsection h3 {
+            font-size: 1.8rem;
+            color: var(--accent-red);
+            margin-bottom: 1.5rem;
+            /*padding-left: 1rem;
+            border-left: 4px solid var(--accent-coral);*/
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+            border: 1px solid var(--bg-secondary);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(233, 128, 116, 0.2);
+            border-color: var(--accent-coral);
+        }
+
+        .gallery-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-content {
+            padding: 1.5rem;
+        }
+
+        .gallery-content h3 {
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-content p {
+            color: var(--text-dark);
+        }
+
+        /* Alternate sections background */
+        section:nth-child(even) {
+            background: rgba(216, 195, 165, 0.1);
+        }
+
+        /* Text Strokes */
+        .stroked-text {
+            color: transparent; /* fill color */
+            -webkit-text-stroke: .7px #ebf0c4; /* white stroke */
+            transition: all 0.4s ease; /* smooth fade */
+        }
+
+        .product-card:hover .stroked-text {
+            opacity: 0; /* fade out */
+        }
+
+        .product-card p {
+            position: relative;
+            z-index: 1;
+            color: var(--text-dark);
+            margin-top: 1rem;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .product-card:hover p {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        /* Animate h3 sliding down */
+        .product-card h3 {
+            position: relative;
+            z-index: 1;
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover h3 {
+            transform: translateY(20px);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#product-design">Product Design</a></li>
+            <li><a href="#conceptual">Conceptual</a></li>
+            <li><a href="#mold-sheets">Mold & Sheets</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li>
+                <a href="https://drive.google.com/file/d/1MRP1Z-Vd74Kdpswo41MccKfN45NEn3ki/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cv-button" download>Download CV</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>MANISH BHADRA ARNAB</h1>
+                <h2>Mechanical Engineer</h2>
+                <p>KUET Graduate | CAD Specialist | Product Designer</p>
+                <div class="contact-info">
+                    <a href="tel:01725497014">📞 01725497014</a>
+                    <a href="mailto:manish.bhadra.arnab@gmail.com">✉️ manish.bhadra.arnab@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/arbhadra/" target="_blank">🔗 LinkedIn Profile</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-photo-container">
+                    <div class="profile-photo">
+                        <img src="D:\dp-mba.png" alt="Your Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <div class="certifications">
+                        <!-- TODO: Update href links to actual certification URLs -->
+                        <a href="#" class="cert-badge" target="_blank">
+                            SW
+                            <span class="tooltip">SOLIDWORKS Certified</span>
+                        </a>
+                        <a href="#" class="cert-badge" target="_blank">
+                            AN
+                            <span class="tooltip">ANSYS Professional</span>
+                        </a>
+                        <a href="#" class="cert-badge" target="_blank">
+                            CAD
+                            <span class="tooltip">CAD Professional</span>
+                        </a>
+                        <a href="#" class="cert-badge" target="_blank">
+                            FEA
+                            <span class="tooltip">FEA Specialist</span>
+                        </a>
+                        <a href="#" class="cert-badge" target="_blank">
+                            3D
+                            <span class="tooltip">3D Printing Expert</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Engineering Projects</h2>
+        <div class="projects-grid">
+            <!-- TODO: Update onclick links to actual project detail pages -->
+            <div class="project-card" onclick="window.open('#', '_blank')">
+                <!-- TODO: Replace gradient with actual image -->
+                <div class="project-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);">
+                </div>
+                <div class="project-content">
+                    <h3>Three Jaw Gripper Assembly</h3>
+                    <p>Industrial robotic pick and place gripper for cylindrical objects up to 100mm. FDM 3D printed prototype using ABS material with stress simulation.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SOLIDWORKS</span>
+                        <span class="tech-tag">ANSYS</span>
+                        <span class="tech-tag">3D Printing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('#', '_blank')">
+                <div class="project-image" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-gray) 100%);">
+                </div>
+                <div class="project-content">
+                    <h3>Formula Student Car Chassis</h3>
+                    <p>FSAE 2023 compliant spaceframe chassis with mild steel construction. Structural analysis for front/rear impact and torsional rigidity.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SOLIDWORKS</span>
+                        <span class="tech-tag">ANSYS</span>
+                        <span class="tech-tag">CNC Machining</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('#', '_blank')">
+                <div class="project-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--bg-secondary) 100%);">
+                </div>
+                <div class="project-content">
+                    <h3>Mechanical Arm with Gripper</h3>
+                    <p>Complete mechanical arm assembly with detailed bill of materials and exploded view documentation.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SOLIDWORKS</span>
+                        <span class="tech-tag">Assembly Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('#', '_blank')">
+                <div class="project-image" style="background: linear-gradient(135deg, var(--accent-gray) 0%, var(--accent-coral) 100%);">
+                </div>
+                <div class="project-content">
+                    <h3>UAV for Vaccine Delivery</h3>
+                    <p>VTOL drone with contactless pickup-delivery mechanism. Thrust-to-weight ratio of 3.20 with carbon fiber structure.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SOLIDWORKS</span>
+                        <span class="tech-tag">NACA Airfoil</span>
+                        <span class="tech-tag">Team Project</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('#', '_blank')">
+                <div class="project-image" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-red) 100%);">
+                </div>
+                <div class="project-content">
+                    <h3>Blow Molding Simulation</h3>
+                    <p>Plastic bottle blow molding simulation using ANSYS POLYFLOW. Wall thickness distribution analysis.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SOLIDWORKS</span>
+                        <span class="tech-tag">ANSYS POLYFLOW</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('#', '_blank')">
+                <div class="project-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-gray) 100%);">
+                </div>
+                <div class="project-content">
+                    <h3>Small Scale Wind Tunnel</h3>
+                    <p>Flow visualization apparatus with 3 m/s mean air velocity and 9 sq inch viewing area. Cork sheet prototype.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SOLIDWORKS</span>
+                        <span class="tech-tag">Flow Visualization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('#', '_blank')">
+                <div class="project-image" style="background: linear-gradient(135deg, var(--accent-red) 0%, var(--bg-secondary) 100%);">
+                </div>
+                <div class="project-content">
+                    <h3>Venus Hybrid Energy Storage</h3>
+                    <p>Conceptual energy storage design combining flywheel storage and supercritical gas turbine.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SOLIDWORKS</span>
+                        <span class="tech-tag">Team Project</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Design Section -->
+    <section id="product-design">
+        <h2 class="section-title">Product Design</h2>
+        <div class="product-grid">
+            <!-- TODO: Add background images for product cards -->
+            <div class="product-card" onclick="window.open('#', '_blank')">
+                <h3>Four in One Body Wash</h3>
+                <p>Multi-functional body wash design with integrated features</p>
+            </div>
+            <div class="product-card" onclick="window.open('#', '_blank')">
+                <h3>Luxury Bus Chairs</h3>
+                <p>Ergonomic luxury seating for premium buses</p>
+            </div>
+            <div class="product-card" onclick="window.open('#', '_blank')">
+                <h3>Hydraulic Braking Pad</h3>
+                <p>Advanced braking system component design</p>
+            </div>
+            <div class="product-card" onclick="window.open('#', '_blank')">
+                <h3>Perfume Bottle Cap</h3>
+                <p>Innovative bottle cap with integrated perfume attachment</p>
+            </div>
+            <div class="product-card" onclick="window.open('#', '_blank')">
+                <h3>Gym Water Bottle</h3>
+                <p>0.5L ergonomic water bottle with better grip design</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conceptual Design Section -->
+    <section id="conceptual">
+        <h2 class="section-title">Conceptual Design</h2>
+        <div class="projects-grid">
+            <div class="project-card" onclick="window.open('#', '_blank')">
+                <div class="project-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--bg-secondary) 100%);">
+                </div>
+                <div class="project-content">
+                    <h3>Skateboard with Paddle</h3>
+                    <p>Mechanical paddle-powered skateboard capable of reaching 20 mph. Lightweight and easy to maneuver design.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SOLIDWORKS</span>
+                        <span class="tech-tag">Keyshot</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('#', '_blank')">
+                <div class="project-image" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-coral) 100%);">
+                </div>
+                <div class="project-content">
+                    <h3>Omni Directional Wheelchair</h3>
+                    <p>Advanced mobility solution with omnidirectional movement capabilities for enhanced accessibility.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SOLIDWORKS</span>
+                        <span class="tech-tag">Conceptual</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mold & Sheets Section -->
+    <section id="mold-sheets">
+        <h2 class="section-title">Mold & Sheets</h2>
+        
+        <div class="subsection">
+            <h3>Mold Design</h3>
+            <div class="product-grid">
+                <div class="product-card" onclick="window.open('#', '_blank')">
+                    <h3>Plastic Stool</h3>
+                    <p>Injection mold design with draft analysis</p>
+                </div>
+                <div class="product-card" onclick="window.open('#', '_blank')">
+                    <h3>Household Dustpan</h3>
+                    <p>Consumer product mold with optimal parting line</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3>Sheet Metal</h3>
+            <div class="product-grid">
+                <div class="product-card" onclick="window.open('#', '_blank')">
+                    <h3>Power Box Design</h3>
+                    <p>Industrial power box with sheet metal construction</p>
+                </div>
+                <div class="product-card" style="--bg-img: url('D:/eP.png');" onclick="window.open('#', '_blank')">
+                    <h3 class="stroked-text">Electric Junction Box</h3>
+                    <p>Electric box panel design with sheet metal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section 
+    <section id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-grid">
+            TODO: Add actual gallery images 
+            <div class="gallery-item" onclick="window.open('#', '_blank')">
+                <div class="gallery-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);"></div>
+                <div class="gallery-content">
+                    <h3>Airbus A380</h3>
+                    <p>Complex surface modeling of commercial aircraft</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" onclick="window.open('#', '_blank')">
+                <div class="gallery-image" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-gray) 100%);"></div>
+                <div class="gallery-content
+                
+     Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="window.open('#', '_blank')">
+                <div class="gallery-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);"></div>
+                <div class="gallery-content">
+                    <h3>Airbus A380</h3>
+                    <p>Complex surface modeling of commercial aircraft</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" onclick="window.open('#', '_blank')">
+                <div class="gallery-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);"></div>
+                <div class="gallery-content">
+                    <h3>Golden Snitch</h3>
+                    <p>3D modeling and rendering with Keyshot</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" onclick="window.open('#', '_blank')">
+                <div class="gallery-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);"></div>
+                <div class="gallery-content">
+                    <h3>Warehouse Modeling</h3>
+                    <p>Industrial warehouse 3D visualization</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" onclick="window.open('#', '_blank')">
+                <div class="gallery-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);"></div>
+                <div class="gallery-content">
+                    <h3>EV Dashboard</h3>
+                    <p>Modern electric vehicle dashboard design with intuitive HMI interface, featuring digital instrument cluster and central infotainment display</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Manish Bhadra Arnab | Mechanical Engineer | KUET</p>
+        <p>Designed with passion for engineering excellence</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.project-card, .product-card, .gallery-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add dynamic background to product cards
+    //     document.querySelectorAll('.product-card').forEach((card, index) => {
+    //         const gradients = [
+    //             'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    //             'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    //             'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    //             'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    //             'linear-gradient(135deg, #30cfd0 0%, #fad0c4 100%)',
+    //             'linear-gradient(135deg, #30cfd0 0%, #fad0c4 100%)',
+    //             'linear-gradient(135deg, #30cfd0 0%, #fad0c4 100%)',
+    //             'linear-gradient(135deg, #30cfd0 0%, #fad0c4 100%)'            
+    //     ];
+    //     card.style.background = gradients[index % gradients.length];
+    // });
+</script>
