@@ -362,8 +362,8 @@
 
         .cert-badge:hover {
             transform: translateY(-5px) scale(1.1);
-            background: var(--accent-coral);
-            border-color: var(--accent-coral);
+            /* background: var(--accent-coral);
+            border-color: var(--accent-coral); */
             color: white;
         }
 
@@ -531,7 +531,7 @@
             background-image: var(--bg-img);
             background-size: cover;
             background-position: center;
-            opacity: 0.5;
+            opacity: 0.4;
             transition: all 0.3s;
         }
 
@@ -732,7 +732,7 @@
         /* Text Strokes */
         .stroked-text {
             color: transparent;
-            -webkit-text-stroke: .7px #ebf0c4;
+            -webkit-text-stroke: 0.6px #250802;
             transition: all 0.4s ease;
         }
 
@@ -743,6 +743,7 @@
         .product-card:hover .stroked-text {
             opacity: 0;
         }
+        
     </style>
 </head>
 <body>
@@ -816,7 +817,7 @@
     <section id="projects">
         <h2 class="section-title">Engineering Projects</h2>
         <div class="projects-grid">
-            <div class="project-card" onclick="window.open('#', '_blank')">
+            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
                 <div class="project-image" style="background-image: url('images/3jaw.png'); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-content">
@@ -830,7 +831,7 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="window.open('#', '_blank')">
+            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
                 <div class="project-image" style="background-image: url('images/kfa.jpg'); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-content">
@@ -844,7 +845,7 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="window.open('#', '_blank')">
+            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
                 <div class="project-image" style="background-image: url('images/mecharn.png'); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-content">
@@ -857,7 +858,7 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="window.open('#', '_blank')">
+            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
                 <div class="project-image" style="background-image: url('images/uav.png'); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-content">
@@ -871,7 +872,7 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="window.open('#', '_blank')">
+            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
                 <div class="project-image" style="background-image: url('images/blow.png'); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-content">
@@ -884,7 +885,7 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="window.open('#', '_blank')">
+            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
                 <div class="project-image" style="background-image: url('images/windT.png'); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-content">
@@ -897,7 +898,7 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="window.open('#', '_blank')">
+            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
                 <div class="project-image" style="background-image: url('images/Venus.png'); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-content">
@@ -917,24 +918,20 @@
         <h2 class="section-title">Product Design</h2>
         <div class="product-grid">
             <!-- TODO: Add background images for product cards -->
-            <div class="product-card" onclick="window.open('#', '_blank')">
-                <h3>Four in One Body Wash</h3>
+            <div class="product-card" style="--bg-img: url('images/4in1.png');" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                <h3 class="stroked-text">Four in One Body Wash</h3>
                 <p>Multi-functional body wash design with integrated features</p>
             </div>
-            <div class="product-card" onclick="window.open('#', '_blank')">
-                <h3>Luxury Bus Chairs</h3>
+            <div class="product-card" style="--bg-img: url('images/buschair.png');" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                <h3 class="stroked-text">Luxury Bus Chairs</h3>
                 <p>Ergonomic luxury seating for premium buses</p>
             </div>
-            <div class="product-card" onclick="window.open('#', '_blank')">
-                <h3>Hydraulic Braking Pad</h3>
+            <div class="product-card" style="--bg-img: url('images/brakepad.png');" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                <h3 class="stroked-text">Hydraulic Braking Pad</h3>
                 <p>Advanced braking system component design</p>
             </div>
-            <div class="product-card" onclick="window.open('#', '_blank')">
-                <h3>Perfume Bottle Cap</h3>
-                <p>Innovative bottle cap with integrated perfume attachment</p>
-            </div>
-            <div class="product-card" onclick="window.open('#', '_blank')">
-                <h3>Gym Water Bottle</h3>
+            <div class="product-card" style="--bg-img: url('images/gymwater.png');" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                    <h3 class="stroked-text">Gym Water Bottle</h3>
                 <p>0.5L ergonomic water bottle with better grip design</p>
             </div>
         </div>
@@ -944,8 +941,8 @@
     <section id="conceptual">
         <h2 class="section-title">Conceptual Design</h2>
         <div class="projects-grid">
-            <div class="project-card" onclick="window.open('#', '_blank')">
-                <div class="project-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--bg-secondary) 100%);">
+            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                <div class="project-image" style="background-image: url('images/skate.png'); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-content">
                     <h3>Skateboard with Paddle</h3>
@@ -957,8 +954,8 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="window.open('#', '_blank')">
-                <div class="project-image" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-coral) 100%);">
+            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                <div class="project-image" style="background-image: url('images/wheelchair.png'); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-content">
                     <h3>Omni Directional Wheelchair</h3>
@@ -979,12 +976,12 @@
         <div class="subsection">
             <h3>Mold Design</h3>
             <div class="product-grid">
-                <div class="product-card" onclick="window.open('#', '_blank')">
-                    <h3>Plastic Stool</h3>
+                <div class="product-card" style="--bg-img: url('images/stool.png');" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                    <h3 class="stroked-text">Plastic Stool</h3>
                     <p>Injection mold design with draft analysis</p>
                 </div>
-                <div class="product-card" onclick="window.open('#', '_blank')">
-                    <h3>Household Dustpan</h3>
+                <div class="product-card" style="--bg-img: url('images/dustpan.png');" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                    <h3 class="stroked-text">Household Dustpan</h3>
                     <p>Consumer product mold with optimal parting line</p>
                 </div>
             </div>
@@ -993,11 +990,11 @@
         <div class="subsection">
             <h3>Sheet Metal</h3>
             <div class="product-grid">
-                <div class="product-card" onclick="window.open('#', '_blank')">
-                    <h3>Power Box Design</h3>
+                <div class="product-card" style="--bg-img: url('images/pb.png');" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                    <h3 class="stroked-text">Power Box Design</h3>
                     <p>Industrial power box with sheet metal construction</p>
                 </div>
-                <div class="product-card" style="--bg-img: url('images/e-panel.png');" onclick="window.open('#', '_blank')">
+                <div class="product-card" style="--bg-img: url('images/e-panel.png');" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
                     <h3 class="stroked-text">Electric Junction Box</h3>
                     <p>Electric box panel design with sheet metal</p>
                 </div>
@@ -1007,32 +1004,32 @@
     <section id="gallery">
         <h2 class="section-title">Gallery</h2>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="window.open('#', '_blank')">
-                <div class="gallery-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);"></div>
+            <div class="gallery-item" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                <div class="gallery-image" style="background-image: url('images/airbus.png'); background-size: cover; background-position: center;"></div>
                 <div class="gallery-content">
                     <h3>Airbus A380</h3>
                     <p>Complex surface modeling of commercial aircraft</p>
                 </div>
             </div>
 
-            <div class="gallery-item" onclick="window.open('#', '_blank')">
-                <div class="gallery-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);"></div>
+            <div class="gallery-item" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                <div class="gallery-image" style="background-image: url('images/snitch.png'); background-size: cover; background-position: center;"></div>
                 <div class="gallery-content">
                     <h3>Golden Snitch</h3>
                     <p>3D modeling and rendering with Keyshot</p>
                 </div>
             </div>
 
-            <div class="gallery-item" onclick="window.open('#', '_blank')">
-                <div class="gallery-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);"></div>
+            <div class="gallery-item" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                <div class="gallery-image" style="background-image: url('images/wareh.png'); background-size: cover; background-position: center;"></div>
                 <div class="gallery-content">
                     <h3>Warehouse Modeling</h3>
                     <p>Industrial warehouse 3D visualization</p>
                 </div>
             </div>
 
-            <div class="gallery-item" onclick="window.open('#', '_blank')">
-                <div class="gallery-image" style="background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-red) 100%);"></div>
+            <div class="gallery-item" onclick="window.open('https://drive.google.com/file/d/1KSBVWV87id8aPkxOBkNt5QkUzJeTLrKa/view?usp=sharing', '_blank')">
+                <div class="gallery-image" style="background-image: url('images/dashboard.jpeg'); background-size: cover; background-position: center;"></div>
                 <div class="gallery-content">
                     <h3>EV Dashboard</h3>
                     <p>Modern electric vehicle dashboard design with intuitive HMI interface, featuring digital instrument cluster and central infotainment display</p>
